@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Color Picker</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body id="bdy" style="background-color:lightcyan;">
+    <div>
+        <button class="theme" onclick="them('#111111')" style="background-color:#111111;color:white">Theme</button>
+        <button class="theme" onclick="them('#333333')" style="background-color:#333333;color:white">Theme</button>
+        <button class="theme" onclick="them('#111144')" style="background-color:#111155;color:cyan">Theme</button>
+        <button class="theme" onclick="them('#ffffff')" style="background-color:#ffffff;color:black">Theme</button>
+    </div>
+    <div id="parent">
+        <div id="pic">
+        <h1 id="txt" autofocus contenteditable="true" ></h1>
+        </div>
+        <div id="emp"></div>
+        <div id="container">
+            <div id="enhan">
+                <button class="st" onclick="select('underline', 'st')" title="underline" style="text-decoration:underline;">U</button>
+                <button class="st" onclick="select('bolder', 'bd')" title="bold" style="font-weight:bolder;">B</button>
+                <button class="st" onclick="select('italic', 'i')" title="italic" style="font-style:italic;">i</button>
+                <button class="st" onclick="select('line-through', 'st')" title="line-through" style="text-decoration:line-through;">ab</button>
+                <button class="st" onclick="select('na', 'q')" title="quotes">i</button>
+                <button class="st" onclick="select('na', '+')" >A<sup>+</sup></button>
+                <button class="st" onclick="select('na', '-')" ><small>A</small><sup>-</sup></button>
+                <button class="st" onclick="select('capitalize', 'cap')" title="Capitalize" >Ab</button>
+                <button class="st" onclick="select('uppercase', 'cap')" title="Uppercase" >AB</button>
+                <button class="st" onclick="select('lowercase', 'cap')" title="lowercase" >ab</button>
+                <button class="st" onclick="select('left', 'ali')" title="left align" >L</button>
+                <button class="st" onclick="select('right', 'ali')" title="right align" >R</button>
+                <button class="st" onclick="select('center', 'ali')" title="center align" >C</button>
+                <button class="st" onclick="select('justify', 'ali')" title="justify">J</button>
+            </div>
+            <div id="col">
+                &nbsp;<b id="a" style="font-family:'Courier New', Courier, monospace;">Pick Text Color</b><br>
+                <button class="col" onclick="select('red', 'col')" style="background-color:red;"></button>
+                <button class="col" onclick="select('green', 'col')" style="background-color:green;"></button>
+                <button class="col" onclick="select('blue', 'col')" style="background-color:blue;"></button>
+                <button class="col" onclick="select('yellow', 'col')" style="background-color:yellow;"></button>
+                <button class="col" onclick="select('violet', 'col')" style="background-color:violet;"></button>
+                <button class="col" onclick="select('orange', 'col')" style="background-color:orange;"></button>
+                <button class="col" onclick="select('pink', 'col')" style="background-color:pink;"></button>
+                <button class="col" onclick="select('brown', 'col')" style="background-color:brown;"></button>
+                <button class="col" onclick="select('black', 'col')" style="background-color:black;"></button>
+                <button class="col" onclick="select('white', 'col')" style="background-color:white;"></button>
+                <button class="col" onclick="select('coral', 'col')" style="background-color:coral;"></button>
+                <button class="col" onclick="select('crimson', 'col')" style="background-color:crimson;"></button>
+                <button class="col" onclick="select('darkred', 'col')" style="background-color:darkred;"></button>
+                <button class="col" onclick="select('green', 'col')" style="background-color:green;"></button>
+                <button class="col" onclick="select('maroon', 'col')" style="background-color:maroon;"></button>
+                <button class="col" onclick="select('tomato', 'col')" style="background-color:tomato;"></button>
+                <button class="col" onclick="select('cadetblue', 'col')" style="background-color:cadetblue;"></button>
+                <button class="col" onclick="select('aqua', 'col')" style="background-color:aqua;"></button>
+                <button class="col" onclick="select('gold', 'col')" style="background-color:gold;"></button>
+                <button class="col" onclick="select('cornflowerblue', 'col')" style="background-color:cornflowerblue;"></button>
+                <button class="col" onclick="select('cyan', 'col')" style="background-color:cyan;"></button>
+                <button class="col" onclick="select('darkslategrey', 'col')" style="background-color:darkslategrey;"></button>
+                <button class="col" onclick="select('dodgerblue', 'col')" style="background-color:dodgerblue;"></button>
+                <button class="col" onclick="select('darkolivegreen', 'col')" style="background-color:darkolivegreen;"></button>
+                <button class="col" onclick="select('khaki', 'col')" style="background-color:khaki;"></button>
+                <button class="col" onclick="select('mediumslateblue', 'col')" style="background-color:mediumslateblue;"></button>
+                <button class="col" onclick="select('magenta', 'col')" style="background-color:magenta;"></button>
+                <button class="col" onclick="select('mediumspringgreen', 'col')" style="background-color:mediumspringgreen;"></button>
+            </div>
+            <div id="bg-col">
+                &nbsp;<b id="b" style="font-family:'Courier New', Courier, monospace;">Pick Background Color</b><br>
+                <button class="bg" onclick="select('red', 'bg')" style="background-color:red;"></button>
+                <button class="bg" onclick="select('green', 'bg')" style="background-color:green;"></button>
+                <button class="bg" onclick="select('blue', 'bg')" style="background-color:blue;"></button>
+                <button class="bg" onclick="select('yellow', 'bg')" style="background-color:yellow;"></button>
+                <button class="bg" onclick="select('violet', 'bg')" style="background-color:violet;"></button>
+                <button class="bg" onclick="select('orange', 'bg')" style="background-color:orange;"></button>
+                <button class="bg" onclick="select('pink', 'bg')" style="background-color:pink;"></button>
+                <button class="bg" onclick="select('brown', 'bg')" style="background-color:brown;"></button>
+                <button class="bg" onclick="select('black', 'bg')" style="background-color:black;"></button>
+                <button class="bg" onclick="select('white', 'bg')" style="background-color:white;"></button>
+                <button class="bg" onclick="select('coral', 'bg')" style="background-color:coral;"></button>
+                <button class="bg" onclick="select('crimson', 'bg')" style="background-color:crimson;"></button>
+                <button class="bg" onclick="select('darkred', 'bg')" style="background-color:darkred;"></button>
+                <button class="bg" onclick="select('green', 'bg')" style="background-color:green;"></button>
+                <button class="bg" onclick="select('maroon', 'bg')" style="background-color:maroon;"></button>
+                <button class="bg" onclick="select('tomato', 'bg')" style="background-color:tomato;"></button>
+                <button class="bg" onclick="select('cadetblue', 'bg')" style="background-color:cadetblue;"></button>
+                <button class="bg" onclick="select('aqua', 'bg')" style="background-color:aqua;"></button>
+                <button class="bg" onclick="select('gold', 'bg')" style="background-color:gold;"></button>
+                <button class="bg" onclick="select('cornflowerblue', 'bg')" style="background-color:cornflowerblue;"></button>
+                <button class="bg" onclick="select('cyan', 'bg')" style="background-color:cyan;"></button>
+                <button class="bg" onclick="select('darkslategrey', 'bg')" style="background-color:darkslategrey;"></button>
+                <button class="bg" onclick="select('dodgerblue', 'bg')" style="background-color:dodgerblue;"></button>
+                <button class="bg" onclick="select('darkolivegreen', 'bg')" style="background-color:darkolivegreen;"></button>
+                <button class="bg" onclick="select('khaki', 'bg')" style="background-color:khaki;"></button>
+                <button class="bg" onclick="select('mediumslateblue', 'bg')" style="background-color:mediumslateblue;"></button>
+                <button class="bg" onclick="select('magenta', 'bg')" style="background-color:magenta;"></button>
+                <button class="bg" onclick="select('mediumspringgreen', 'bg')" style="background-color:mediumspringgreen;"></button>                
+            </div>
+            <div id="font-col">
+                &nbsp;<b id="c" style="font-family:'Courier New', Courier, monospace;">Pick Font</b><br>
+                <button class="font" style="font-family:Courier" onclick="select('Courier', 'font')">Hello</button>
+                <button class="font" style="font-family:Franklin Gothic Medium" onclick="select('Franklin Gothic Medium', 'font')">Hello</button>
+                <button class="font" style="font-family:Amatic SC,cursive" onclick="select('Amatic SC,cursive', 'font')">Hello</button>
+                <button class="font" style="font-family:Lora,cursive" onclick="select('Lora,cursive', 'font')">Hello</button>
+                <button class="font" style="font-family:Trebuchet MS" onclick="select('Trebuchet MS', 'font')">Hello</button>
+                <button class="font" style="font-family:sans-serif" onclick="select('sans-serif', 'font')">Hello</button>
+                <button class="font" style="font-family:Georgia" onclick="select('Georgia', 'font')">Hello</button>
+                <button class="font" style="font-family:Times New Roman" onclick="select('Times New Roman', 'font')">Hello</button>
+                <button class="font" style="font-family:chiller" onclick="select('chiller', 'font')">Hello</button>
+                <button class="font" style="font-family:Lucclassa Sans" onclick="select('Lucclassa Sans', 'font')">Hello</button>
+                <button class="font" style="font-family:Segoe UI" onclick="select('Segoe UI', 'font')">Hello</button>
+                <button class="font" style="font-family:Lucclassa" onclick="select('Lucclassa', 'font')">Hello</button>
+                <button class="font" style="font-family:Arial" onclick="select('Arial', 'font')">Hello</button>
+                <button class="font" style="font-family:Impact" onclick="select('Impact', 'font')">Hello</button>
+                <button class="font" style="font-family:Pacifico" onclick="select('Pacifico', 'font')">Hello</button>
+                <button class="font" style="font-family:Rockwell" onclick="select('Rockwell', 'font')">Hello</button>
+                <button class="font" style="font-family:Brush Script MT" onclick="select('Brush Script MT', 'font')">Hello</button>
+                <button class="font" style="font-family:Roboto" onclick="select('Roboto', 'font')">Hello</button>
+                <button class="font" style="font-family:Consolas" onclick="select('Consolas', 'font')">Hello</button>
+                <button class="font" style="font-family:Allura" onclick="select('Allura', 'font')">Hello</button>
+                <button class="font" style="font-family:Papyrus" onclick="select('Papyrus', 'font')">Hello</button>
+                <button class="font" style="font-family:Rye" onclick="select('Rye', 'font')">Hello</button>
+            </div>
+        </div>
+            
+        </div>
+    </div>
+    <button id="download" style="width: 100px;margin-left:230px;border-radius:10px">Download</button>
+</body>
+<script src="script.js"></script>
+</html>
